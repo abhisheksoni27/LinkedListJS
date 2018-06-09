@@ -56,6 +56,10 @@ class LinkedList {
         }
     }
 
+    addLast(num) {
+        this.push(num);
+    }
+
     print() {
         let currentNode = this.head;
         while (currentNode) {
@@ -75,6 +79,6 @@ for (let i = 0; i < 10; i++) {
 
 list.print();
 
-list.addFirst(1);
+list.addLast(1);
 
 list.print();
