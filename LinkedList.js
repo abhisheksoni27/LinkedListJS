@@ -34,6 +34,17 @@ class LinkedList {
         return data;
     }
 
+    search(target) {
+        let currentNode = this.head;
+        while (currentNode.next) {
+            if (currentNode.data === target) {
+                return currentNode;
+            }
+            currentNode = currentNode.next;
+        }
+        return null;
+    }
+
     print() {
         let currentNode = this.head;
         while (currentNode) {
@@ -46,9 +57,10 @@ class LinkedList {
 }
 
 const list = new LinkedList();
-
+list.push(10);
 for (let i = 0; i < 10; i++) {
     list.push(Math.floor(Math.random() * 100));
 }
 
 list.print();
+console.log(list.search(10))
