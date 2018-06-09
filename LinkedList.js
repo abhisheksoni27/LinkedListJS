@@ -45,6 +45,17 @@ class LinkedList {
         return null;
     }
 
+    addFirst(num) {
+        if (this.head == null) {
+            this.head = new Node(num);
+        } else {
+
+            let newNode = new Node(num);
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+    }
+
     print() {
         let currentNode = this.head;
         while (currentNode) {
@@ -63,4 +74,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 list.print();
-console.log(list.search(10))
+
+list.addFirst(1);
+
+list.print();
