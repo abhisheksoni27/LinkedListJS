@@ -8,7 +8,7 @@ class LinkedList {
 
 
     add(num) {
-        if (this.head == null) {
+        if (this.isEmpty()) {
             this.head = new Node(num);
         } else {
             let currentNode = this.head;
@@ -46,7 +46,7 @@ class LinkedList {
     }
 
     addFirst(num) {
-        if (this.head == null) {
+        if (this.isEmpty()) {
             this.head = new Node(num);
         } else {
 
@@ -61,6 +61,8 @@ class LinkedList {
     }
 
     insertAfter(num, key) {
+        if(this.isEmpty()) throw new Error('List is Empty!');
+        
         let currentNode = this.head;
 
         while (currentNode && currentNode.data != key) {
@@ -72,7 +74,13 @@ class LinkedList {
         currentNode.next = newNode;
     }
 
+    isEmpty(){
+        return this.head == null ? true : false;
+    }
+
     insertBefore(num, key) {
+        if(this.isEmpty()) throw new Error('List is Empty!');
+
         let currentNode = this.head;
         let previousNode;
 
