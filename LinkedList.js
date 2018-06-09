@@ -57,7 +57,7 @@ class LinkedList {
 }
 
 const list = new LinkedList();
-list.push(10);
+
 for (let i = 0; i < 10; i++) {
     list.push(Math.floor(Math.random() * 100));
 }
