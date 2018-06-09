@@ -7,7 +7,7 @@ class LinkedList {
     }
 
 
-    add(num) {
+    push(num) {
         if (this.head == null) {
             this.head = new Node(num);
         } else {
@@ -21,17 +21,34 @@ class LinkedList {
         }
     }
 
+    pop() {
+        let currentNode = this.head;
+        let previousNode = null;
+
+        while (currentNode.next) {
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+        }
+        const data = currentNode.data;
+        previousNode.next = null;
+        return data;
+    }
+
     print() {
         let currentNode = this.head;
         while (currentNode) {
-            console.log("Data = %s", currentNode.data);
+            process.stdout.write(currentNode.data + " -> ");
             currentNode = currentNode.next;
         }
+
+        console.log();
     }
 }
 
 const list = new LinkedList();
-for (let i = 0; i<10; i++){
-    
+
+for (let i = 0; i < 10; i++) {
+    list.push(Math.floor(Math.random() * 100));
 }
+
 list.print();
