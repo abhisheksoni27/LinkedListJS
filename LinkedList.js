@@ -72,6 +72,20 @@ class LinkedList {
         currentNode.next = newNode;
     }
 
+    insertBefore(num, key) {
+        let currentNode = this.head;
+        let previousNode;
+
+        while (currentNode && currentNode.data != key) {
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+        }
+
+        let newNode = new Node(num);
+        newNode.next = currentNode;
+        previousNode.next = newNode;
+    }
+
     print() {
         let currentNode = this.head;
         while (currentNode) {
@@ -96,6 +110,6 @@ for (let i = 0; i < 10; i++) {
 
 list.print();
 
-list.insertAfter(1, 5);
+list.insertBefore(1, 5);
 
 list.print();
