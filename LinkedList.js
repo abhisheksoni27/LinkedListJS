@@ -7,7 +7,7 @@ class LinkedList {
     }
 
 
-    push(num) {
+    add(num) {
         if (this.head == null) {
             this.head = new Node(num);
         } else {
@@ -21,7 +21,7 @@ class LinkedList {
         }
     }
 
-    pop() {
+    remove() {
         let currentNode = this.head;
         let previousNode = null;
 
@@ -57,7 +57,19 @@ class LinkedList {
     }
 
     addLast(num) {
-        this.push(num);
+        this.add(num);
+    }
+
+    insertAfter(num, key) {
+        let currentNode = this.head;
+
+        while (currentNode && currentNode.data != key) {
+            currentNode = currentNode.next;
+        }
+
+        let newNode = new Node(num);
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
     }
 
     print() {
@@ -74,11 +86,16 @@ class LinkedList {
 const list = new LinkedList();
 
 for (let i = 0; i < 10; i++) {
-    list.push(Math.floor(Math.random() * 100));
+    if (i == 5) {
+        list.add(5);
+    } else {
+        list.add(Math.floor(Math.random() * 100));
+    }
+
 }
 
 list.print();
 
-list.addLast(1);
+list.insertAfter(1, 5);
 
 list.print();
