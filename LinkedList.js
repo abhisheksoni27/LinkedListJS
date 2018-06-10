@@ -34,6 +34,30 @@ class LinkedList {
         return data;
     }
 
+    remove(key) {
+        let previousNode;
+        let currentNode = this.head;
+
+        // match head
+        if (currentNode.data == key) {
+            this.head = currentNode.next;
+            return;
+        } else {
+            currentNode = currentNode.next;
+
+            while (currentNode.next) {
+                if (currentNode.data == key) {
+                    console.log("HERE")
+                    previousNode.next = currentNode.next;
+                    return;
+                } else {
+                    previousNode = currentNode;
+                    currentNode = currentNode.next;
+                }
+            }
+        }
+    }
+
     search(target) {
         let currentNode = this.head;
         while (currentNode.next) {
@@ -61,8 +85,8 @@ class LinkedList {
     }
 
     addAfter(num, key) {
-        if(this.isEmpty()) throw new Error('List is Empty!');
-        
+        if (this.isEmpty()) throw new Error('List is Empty!');
+
         let currentNode = this.head;
 
         while (currentNode && currentNode.data != key) {
@@ -74,12 +98,12 @@ class LinkedList {
         currentNode.next = newNode;
     }
 
-    isEmpty(){
+    isEmpty() {
         return this.head == null ? true : false;
     }
 
     addBefore(num, key) {
-        if(this.isEmpty()) throw new Error('List is Empty!');
+        if (this.isEmpty()) throw new Error('List is Empty!');
 
         let currentNode = this.head;
         let previousNode;
@@ -106,7 +130,6 @@ class LinkedList {
 }
 
 const list = new LinkedList();
-
 for (let i = 0; i < 10; i++) {
     if (i == 5) {
         list.add(5);
@@ -116,4 +139,8 @@ for (let i = 0; i < 10; i++) {
 
 }
 
+list.print();
+list.addAfter(1, 5);
+list.print();
+list.remove(5);
 list.print();
