@@ -60,7 +60,7 @@ class LinkedList {
         this.add(num);
     }
 
-    insertAfter(num, key) {
+    addAfter(num, key) {
         if(this.isEmpty()) throw new Error('List is Empty!');
         
         let currentNode = this.head;
@@ -78,7 +78,7 @@ class LinkedList {
         return this.head == null ? true : false;
     }
 
-    insertBefore(num, key) {
+    addBefore(num, key) {
         if(this.isEmpty()) throw new Error('List is Empty!');
 
         let currentNode = this.head;
@@ -115,9 +115,5 @@ for (let i = 0; i < 10; i++) {
     }
 
 }
-
-list.print();
-
-list.insertBefore(1, 5);
 
 list.print();
